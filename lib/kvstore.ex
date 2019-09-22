@@ -8,7 +8,8 @@ defmodule KVStore do
     port = Application.get_env(:dbase, :cowboy_port, 8080)
 
     children = [
-      Plug.Adapters.Cowboy.child_spec(:http, KVStore.Router, [], port: port)
+      Plug.Adapters.Cowboy.child_spec(:http, KVStore.Router, [], port: port),
+      {KVStore.Storage, []}
     ]
 
     Logger.info("Started application")

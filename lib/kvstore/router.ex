@@ -32,11 +32,11 @@ defmodule KVStore.Router do
 
   get "/update" do
   	conn = put_resp_content_type(conn, "text/html")
-  	send_file(conn, 200, "lib/web/create.html")
+  	send_file(conn, 200, "lib/web/update.html")
   end
   post "/update" do
-  	:ok = KVStore.Storage.create conn  	
-	send_resp(conn, 201, "Updated")
+  	KVStore.Storage.update conn  	
+	  send_resp(conn, 201, "Updated")
   end
 
   get "/delete" do

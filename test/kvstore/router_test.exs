@@ -33,7 +33,7 @@ defmodule KVStore.RouterTest do
   test "returns 3update" do
     :timer.sleep(500)
 
-    attr1 = ["-X", "POST", "-d", "key=1&value=test1&ttl=99", "127.0.0.1:8080/update"]
+    attr1 = ["-X", "POST", "-d", "key=1&value=test1", "127.0.0.1:8080/update"]
     attr2 = ["-X", "POST", "-d", "key=1", "127.0.0.1:8080/read"]
 
     r1 = System.cmd("curl", attr1)
